@@ -9,14 +9,14 @@ routes.post('/users', async (req,res) => {
     const {name, description, district} = req.body;
 
 
-    await User.create({
+    const user = await User.create({
         name,
         description,
         district
     });
 
 
-    return res.json({"User created": User})
+    return res.json(user)
 })
 
 //add try catch here due to:

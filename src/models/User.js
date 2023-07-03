@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema({
     name: String,
     description: String,
     district: String,
-
 })
 
 

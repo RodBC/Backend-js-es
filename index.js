@@ -1,6 +1,9 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://rbc6:123@cluster-es.x3jxl36.mongodb.net/?retryWrites=true&w=majority";
+const express = require('express');
+const app = express();
+const routes = require('./src/routes')
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -25,11 +28,8 @@ async function run() {
 }
 run().catch(console.dir);
 
-const express = require('express');
-const app = express();
 app.use(express.json());
-
-const routes = require('./src/routes')
 app.use(routes)
+
 app.listen(3333);
 
