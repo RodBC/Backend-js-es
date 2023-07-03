@@ -1,13 +1,14 @@
 const { Router } = require('express');
 const User = require('./models/User')
 
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json()
 
 const routes = Router();
 
-routes.post('/users', async (req,res) => {
+routes.post('/users', jsonParser, async (req,res) => {
 
     const {name, description, district} = req.body;
-
 
     const user = await User.create({
         name,
