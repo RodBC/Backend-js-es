@@ -25,19 +25,14 @@ async function run() {
 }
 run().catch(console.dir);
 
-
-
 const express = require('express');
-
-
 const app = express();
 
-//GET, POST, PUT, DELETE
+const routes = require('./src/routes')
+app.use(routes)
 
 
-app.get('/', (req, res) => {
-    return res.json('hello')
-});
+app.use(express.json());
 
 app.listen(3333);
 
